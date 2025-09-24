@@ -167,7 +167,7 @@
             // 
             waitTxt.AutoSize = true;
             waitTxt.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            waitTxt.Location = new Point(44, 431);
+            waitTxt.Location = new Point(41, 450);
             waitTxt.Name = "waitTxt";
             waitTxt.Size = new Size(0, 30);
             waitTxt.TabIndex = 12;
@@ -204,7 +204,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
             label7.Location = new Point(178, 345);
             label7.Name = "label7";
             label7.Size = new Size(268, 30);
@@ -218,7 +218,7 @@
             label3.Image = (Image)resources.GetObject("label3.Image");
             label3.Location = new Point(389, 301);
             label3.Name = "label3";
-            label3.Size = new Size(57, 44);
+            label3.Size = new Size(21, 44);
             label3.TabIndex = 17;
             label3.Click += label3_Click_1;
             // 
@@ -237,16 +237,16 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
-            ClientSize = new Size(800, 473);
+            ClientSize = new Size(800, 483);
+            Controls.Add(label3);
+            Controls.Add(waitTxt);
             Controls.Add(label2);
             Controls.Add(label8);
             Controls.Add(convertTxtBox);
             Controls.Add(inputTxtBox);
-            Controls.Add(label3);
             Controls.Add(customTxtBox);
             Controls.Add(label7);
             Controls.Add(rBtnCustom);
-            Controls.Add(waitTxt);
             Controls.Add(label5);
             Controls.Add(rBtnYuan);
             Controls.Add(rBtnYen);
