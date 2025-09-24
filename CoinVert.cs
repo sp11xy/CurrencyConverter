@@ -39,20 +39,13 @@ namespace CurrencyConverter
             using JsonDocument doc = JsonDocument.Parse(json); //parse to json
 
             decimal rate = doc.RootElement.GetProperty("rates").GetProperty(currency).GetDecimal();
-            
+
             return rate;
         }
 
 
         private async void Convert_Click(object sender, EventArgs e)
         {
-            waitTxt.Text = "fetching newest rates from the server...";
-
-
-            decimal wonRate = await GetRateAsync("KRW");
-            decimal yenRate = await GetRateAsync("JPY");
-            decimal yuanRate = await GetRateAsync("CNY");
-
 
             //decimal euro = decimal.Parse(inputTxtBox.Text); //dangerous cuz it gets easily parse errors
             decimal euro;
@@ -65,6 +58,14 @@ namespace CurrencyConverter
                     return;
                 }
 
+                waitTxt.Text = "Please wait, updating rates from server...";
+
+
+                decimal wonRate = await GetRateAsync("KRW");
+                decimal yenRate = await GetRateAsync("JPY");
+                decimal yuanRate = await GetRateAsync("CNY");
+
+
 
                 if (rBtnWon.Checked)
                 {
@@ -76,7 +77,7 @@ namespace CurrencyConverter
                     decimal converted = euro * yenRate;
                     convertTxtBox.Text = $" {converted.ToString("N2")} JPY";
                 }
-                else if(rBtnYuan.Checked)
+                else if (rBtnYuan.Checked)
                 {
                     decimal converted = euro * yuanRate;
                     convertTxtBox.Text = $" {converted.ToString("N2")} CNY";
@@ -102,6 +103,11 @@ namespace CurrencyConverter
 
 
         private void rBtnYuan_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

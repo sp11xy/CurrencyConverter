@@ -42,12 +42,15 @@
             label4 = new Label();
             label5 = new Label();
             waitTxt = new Label();
+            label6 = new Label();
+            textBox1 = new TextBox();
+            radioButton1 = new RadioButton();
             SuspendLayout();
             // 
             // inputTxtBox
             // 
             inputTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            inputTxtBox.Location = new Point(44, 185);
+            inputTxtBox.Location = new Point(44, 213);
             inputTxtBox.Name = "inputTxtBox";
             inputTxtBox.Size = new Size(325, 43);
             inputTxtBox.TabIndex = 0;
@@ -67,7 +70,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(44, 143);
+            label1.Location = new Point(44, 171);
             label1.Name = "label1";
             label1.Size = new Size(429, 30);
             label1.TabIndex = 2;
@@ -100,7 +103,7 @@
             rBtnWon.AutoSize = true;
             rBtnWon.Checked = true;
             rBtnWon.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rBtnWon.Location = new Point(44, 234);
+            rBtnWon.Location = new Point(44, 262);
             rBtnWon.Name = "rBtnWon";
             rBtnWon.Size = new Size(170, 41);
             rBtnWon.TabIndex = 5;
@@ -113,7 +116,7 @@
             // 
             rBtnYen.AutoSize = true;
             rBtnYen.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rBtnYen.Location = new Point(220, 234);
+            rBtnYen.Location = new Point(220, 262);
             rBtnYen.Name = "rBtnYen";
             rBtnYen.Size = new Size(140, 41);
             rBtnYen.TabIndex = 6;
@@ -126,7 +129,7 @@
             // 
             rBtnYuan.AutoSize = true;
             rBtnYuan.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rBtnYuan.Location = new Point(378, 234);
+            rBtnYuan.Location = new Point(378, 262);
             rBtnYuan.Name = "rBtnYuan";
             rBtnYuan.Size = new Size(169, 41);
             rBtnYuan.TabIndex = 7;
@@ -138,7 +141,7 @@
             // label2
             // 
             label2.Font = new Font("Century Gothic", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(375, 190);
+            label2.Location = new Point(375, 218);
             label2.Name = "label2";
             label2.Size = new Size(34, 33);
             label2.TabIndex = 8;
@@ -147,7 +150,7 @@
             // label3
             // 
             label3.Image = (Image)resources.GetObject("label3.Image");
-            label3.Location = new Point(165, 295);
+            label3.Location = new Point(44, 295);
             label3.Name = "label3";
             label3.Size = new Size(49, 87);
             label3.TabIndex = 9;
@@ -177,9 +180,38 @@
             waitTxt.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             waitTxt.Location = new Point(44, 431);
             waitTxt.Name = "waitTxt";
-            waitTxt.Size = new Size(31, 30);
+            waitTxt.Size = new Size(0, 30);
             waitTxt.TabIndex = 12;
-            waitTxt.Text = "...";
+            // 
+            // label6
+            // 
+            label6.Image = (Image)resources.GetObject("label6.Image");
+            label6.Location = new Point(32, -1);
+            label6.Name = "label6";
+            label6.Size = new Size(197, 172);
+            label6.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(260, 311);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 43);
+            textBox1.TabIndex = 14;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
+            radioButton1.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            radioButton1.Location = new Point(128, 311);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(126, 41);
+            radioButton1.TabIndex = 15;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Custom";
+            radioButton1.UseVisualStyleBackColor = true;
             // 
             // CoinVert
             // 
@@ -187,6 +219,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(800, 473);
+            Controls.Add(radioButton1);
+            Controls.Add(textBox1);
             Controls.Add(waitTxt);
             Controls.Add(label5);
             Controls.Add(label3);
@@ -200,6 +234,7 @@
             Controls.Add(convertTxtBox);
             Controls.Add(inputTxtBox);
             Controls.Add(label4);
+            Controls.Add(label6);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "CoinVert";
@@ -223,5 +258,8 @@
         private Label label4;
         private Label label5;
         private Label waitTxt;
+        private Label label6;
+        private TextBox textBox1;
+        private RadioButton radioButton1;
     }
 }
