@@ -9,26 +9,6 @@ namespace CurrencyConverter
             InitializeComponent();
         }
 
-        private void RbtnYen_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RbtnWon_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private async Task<decimal> GetRateAsync(string currency)
         {
             HttpClient client = new HttpClient();
@@ -60,10 +40,31 @@ namespace CurrencyConverter
 
                 waitTxt.Text = "Please wait, updating rates from server...";
 
-
                 decimal wonRate = await GetRateAsync("KRW");
                 decimal yenRate = await GetRateAsync("JPY");
                 decimal yuanRate = await GetRateAsync("CNY");
+                decimal customRate = 0;
+
+
+                if (customTxtBox.Text.Length == 3 && !string.IsNullOrWhiteSpace(inputTxtBox.Text))
+                {
+                    try
+                    {
+                        customRate = await GetRateAsync(customTxtBox.Text);
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Invalid Country Code! Please enter a 3-letter code");
+                        inputTxtBox.Text = "";
+                        customTxtBox.Text = "";
+                        convertTxtBox.Text = "";
+                        waitTxt.Text = "";
+                        return;
+                    }
+                }
+
+
 
 
 
@@ -82,11 +83,32 @@ namespace CurrencyConverter
                     decimal converted = euro * yuanRate;
                     convertTxtBox.Text = $" {converted.ToString("N2")} CNY";
                 }
+                else if (rBtnCustom.Checked)
+                {
+                    if (customRate != 0)
+                    {
+                        decimal converted = euro * customRate;
+                        convertTxtBox.Text = $" {converted.ToString("N2")} {customTxtBox.Text}";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Problem occured, please try again!");
+                        inputTxtBox.Text = "";
+                        customTxtBox.Text = "";
+                        convertTxtBox.Text = "";
+                        return;
+                    }
+                }
 
             }
             else
             {
                 MessageBox.Show("Please only enter valid digits!");
+                inputTxtBox.Text = "";
+                customTxtBox.Text = "";
+                convertTxtBox.Text = "";
+                waitTxt.Text = "";
+                return;
             }
 
             waitTxt.Text = "";
@@ -102,14 +124,26 @@ namespace CurrencyConverter
         }
 
 
-        private void rBtnYuan_CheckedChanged(object sender, EventArgs e)
+        private void CustomTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            customTxtBox.CharacterCasing = CharacterCasing.Upper;
+            customTxtBox.MaxLength = 3;
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Supported Currencies:\n EUR, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHF, CLP, CNY, COP, CRC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB, FJD, FKP, FOK, GBP, GEL, GGP, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HRK, HTG, HUF, IDR, ILS, IMP, INR, IQD, IRR, ISK, JEP, JMD, JOD, JPY, KES, KGS, KHR, KID, KMF, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MYR, MZN, NAD, NGN, NIO, NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TVD, TWD, TZS, UAH, UGX, USD, UYU, UZS, VES, VND, VUV, WST, XAF, XCD, XCG, XDR, XOF, XPF, YER, ZAR, ZMW, ZWL");
         }
     }
 }
