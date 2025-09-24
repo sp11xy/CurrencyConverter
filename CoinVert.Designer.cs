@@ -41,7 +41,7 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label6 = new Label();
+            waitTxt = new Label();
             SuspendLayout();
             // 
             // inputTxtBox
@@ -143,12 +143,11 @@
             label2.Size = new Size(34, 33);
             label2.TabIndex = 8;
             label2.Text = "€";
-            label2.Click += this.label2_Click;
             // 
             // label3
             // 
             label3.Image = (Image)resources.GetObject("label3.Image");
-            label3.Location = new Point(99, 295);
+            label3.Location = new Point(165, 295);
             label3.Name = "label3";
             label3.Size = new Size(49, 87);
             label3.TabIndex = 9;
@@ -172,15 +171,15 @@
             label5.TabIndex = 11;
             label5.Text = "Coinvert";
             // 
-            // label6
+            // waitTxt
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(53, 443);
-            label6.Name = "label6";
-            label6.Size = new Size(19, 21);
-            label6.TabIndex = 12;
-            label6.Text = "x";
+            waitTxt.AutoSize = true;
+            waitTxt.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            waitTxt.Location = new Point(44, 431);
+            waitTxt.Name = "waitTxt";
+            waitTxt.Size = new Size(31, 30);
+            waitTxt.TabIndex = 12;
+            waitTxt.Text = "...";
             // 
             // CoinVert
             // 
@@ -188,7 +187,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(800, 473);
-            Controls.Add(label6);
+            Controls.Add(waitTxt);
             Controls.Add(label5);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -223,6 +222,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
+        private Label waitTxt;
     }
 }
