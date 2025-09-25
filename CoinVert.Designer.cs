@@ -41,7 +41,6 @@
             label4 = new Label();
             label5 = new Label();
             waitTxt = new Label();
-            label6 = new Label();
             customTxtBox = new TextBox();
             rBtnCustom = new RadioButton();
             label7 = new Label();
@@ -172,14 +171,6 @@
             waitTxt.Size = new Size(0, 30);
             waitTxt.TabIndex = 12;
             // 
-            // label6
-            // 
-            label6.Image = (Image)resources.GetObject("label6.Image");
-            label6.Location = new Point(32, -1);
-            label6.Name = "label6";
-            label6.Size = new Size(197, 172);
-            label6.TabIndex = 13;
-            // 
             // customTxtBox
             // 
             customTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -255,7 +246,6 @@
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(label4);
-            Controls.Add(label6);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "CoinVert";
@@ -278,7 +268,6 @@
         private Label label4;
         private Label label5;
         private Label waitTxt;
-        private Label label6;
         private TextBox customTxtBox;
         private RadioButton rBtnCustom;
         private Label label7;
