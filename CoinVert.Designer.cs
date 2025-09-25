@@ -173,7 +173,7 @@
             // customTxtBox
             // 
             customTxtBox.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customTxtBox.Location = new Point(168, 253);
+            customTxtBox.Location = new Point(168, 256);
             customTxtBox.Name = "customTxtBox";
             customTxtBox.Size = new Size(81, 43);
             customTxtBox.TabIndex = 14;
@@ -184,7 +184,7 @@
             // rBtnCustom
             // 
             rBtnCustom.Font = new Font("Segoe UI", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rBtnCustom.Location = new Point(44, 253);
+            rBtnCustom.Location = new Point(44, 256);
             rBtnCustom.Name = "rBtnCustom";
             rBtnCustom.Size = new Size(159, 41);
             rBtnCustom.TabIndex = 15;
@@ -195,7 +195,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
-            label7.Location = new Point(44, 297);
+            label7.Location = new Point(44, 300);
             label7.Name = "label7";
             label7.Size = new Size(268, 30);
             label7.TabIndex = 16;
@@ -206,11 +206,11 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.Image = (Image)resources.GetObject("label3.Image");
-            label3.Location = new Point(255, 253);
+            label3.Location = new Point(255, 256);
             label3.Name = "label3";
             label3.Size = new Size(38, 44);
             label3.TabIndex = 17;
-            label3.Click += label3_Click_1;
+            label3.Click += HelpButton_Click;
             // 
             // CoinVert
             // 
